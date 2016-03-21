@@ -3,6 +3,19 @@
 }
 
 .box {
-  border: 1px solid black;
+  border: 8px solid white;
   height: 150px;
+  font-size: 100px;
+  text-align: center;
+  background-color: lightgray;
+  }
+
+.red{
+  color: red;
+  background-color: salmon;
+}
+
+.blue{
+  color: navy;
+  background-color: lightblue;
 }
