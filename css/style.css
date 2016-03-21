@@ -5,8 +5,9 @@
 .box {
   border: 8px solid white;
   height: 150px;
-  font-size: 100px;
+  width: 150px;
   text-align: center;
+  font-size: 100px;
   background-color: lightgray;
   }
 

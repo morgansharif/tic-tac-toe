@@ -24,45 +24,45 @@ $(document).ready(function() {
     // );
 
 
-      for (var key in winConditions){
-      console.log(winConditions[key]);
-        if ( $(key).text()){
-          console.log ( "$(" + key + ").text() = " + $(key).text());
-          console.log ("running winConditions");
-          for (var cond in winConditions[key][0]){
-            console.log("checking " + key);
-            console.log("looking at " + $(cond[0]).text());
-            if ($(cond[0]).text() === $(cond[1]).text() && $(cond[1]).text() === $(cond[2]).text() ){
-              console.log("key[0] = "+ winConditions[key[0]]);
-              console.log(cond);
-              console.log ( ($(cond[0]).text() + " & " + $(cond[1]).text() + " & " + $(cond[2]).text() ) );
-              return true;
-            }
-          }
-        }
-      }
+      // for (var key in winConditions){
+      // console.log(winConditions[key]);
+      //   if ( $(key).text()){
+      //     console.log ( "$(" + key + ").text() = " + $(key).text());
+      //     console.log ("running winConditions");
+      //     for (var cond in winConditions[key][0]){
+      //       console.log("checking " + key);
+      //       console.log("looking at " + $(cond[0]).text());
+      //       if ($(cond[0]).text() === $(cond[1]).text() && $(cond[1]).text() === $(cond[2]).text() ){
+      //         console.log("key[0] = "+ winConditions[key[0]]);
+      //         console.log(cond);
+      //         console.log ( ($(cond[0]).text() + " & " + $(cond[1]).text() + " & " + $(cond[2]).text() ) );
+      //         return true;
+      //       }
+      //     }
+      //   }
+      // }
 
-    // if ( $("#a1").text() ){
-    //     console.log("checking #a1");
-    //     if ( ( $("#a1").text() === $("#a2").text() && $("#a2").text() === $("#a3").text() ) ||
-    //          ( $("#a1").text() === $("#b1").text() && $("#b1").text() === $("#c1").text() ) ||
-    //          ( $("#a1").text() === $("#b2").text() && $("#b2").text() === $("#c3").text() ) ){
-    //       return true;
-    //     }
-    // } if ( $("#b2").text() ){
-    //     console.log("checking #b2");
-    //     if ( ( $("#b1").text() === $("#b2").text() && $("#b2").text() === $("#b3").text() ) ||
-    //          ( $("#a2").text() === $("#b2").text() && $("#b2").text() === $("#c2").text() ) ||
-    //          ( $("#a3").text() === $("#b2").text() && $("#b2").text() === $("#c1").text() ) ){
-    //       return true;
-    //     }
-    // } if ( $("#c3").text() ){
-    //     console.log("checking #c3");
-    //     if ( ( $("#c1").text() === $("#c2").text() && $("#c2").text() === $("#c3").text() ) ||
-    //          ( $("#a3").text() === $("#b3").text() && $("#b3").text() === $("#c3").text() ) ){
-    //       return true;
-    //     }
-    // }
+    if ( $("#a1").text() ){
+        console.log("checking #a1");
+        if ( ( $("#a1").text() === $("#a2").text() && $("#a2").text() === $("#a3").text() ) ||
+             ( $("#a1").text() === $("#b1").text() && $("#b1").text() === $("#c1").text() ) ||
+             ( $("#a1").text() === $("#b2").text() && $("#b2").text() === $("#c3").text() ) ){
+          return true;
+        }
+    } if ( $("#b2").text() ){
+        console.log("checking #b2");
+        if ( ( $("#b1").text() === $("#b2").text() && $("#b2").text() === $("#b3").text() ) ||
+             ( $("#a2").text() === $("#b2").text() && $("#b2").text() === $("#c2").text() ) ||
+             ( $("#a3").text() === $("#b2").text() && $("#b2").text() === $("#c1").text() ) ){
+          return true;
+        }
+    } if ( $("#c3").text() ){
+        console.log("checking #c3");
+        if ( ( $("#c1").text() === $("#c2").text() && $("#c2").text() === $("#c3").text() ) ||
+             ( $("#a3").text() === $("#b3").text() && $("#b3").text() === $("#c3").text() ) ){
+          return true;
+        }
+    }
     return false;
   } //end is winner
 
