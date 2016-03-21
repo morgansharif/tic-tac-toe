@@ -16,53 +16,28 @@ $(document).ready(function() {
       ["#a3", "#b3", "#c3"]]
     };
   function isWinner(){
-    // var tileVals = [];
-    // $(".box").siblings().each(
-    //   function (){
-    //     tileVals.push( $(this).text() );      //creates array of values of all tiles current state. (e.g.: ["X", "O", "O", "X", "X", "O", "", "", ""])
-    //   }
-    // );
 
-
-      for (var key in winConditions){
-      console.log(winConditions[key]);
-        if ( $(key).text()){
-          console.log ( "$(" + key + ").text() = " + $(key).text());
-          console.log ("running winConditions");
-          for (var cond in winConditions[key][0]){
-            console.log("checking " + key);
-            console.log("looking at " + $(cond[0]).text());
-            if ($(cond[0]).text() === $(cond[1]).text() && $(cond[1]).text() === $(cond[2]).text() ){
-              console.log("key[0] = "+ winConditions[key[0]]);
-              console.log(cond);
-              console.log ( ($(cond[0]).text() + " & " + $(cond[1]).text() + " & " + $(cond[2]).text() ) );
-              return true;
-            }
-          }
+    if ( $("#a1").text() ){
+        console.log("checking #a1");
+        if ( ( $("#a1").text() === $("#a2").text() && $("#a2").text() === $("#a3").text() ) ||
+             ( $("#a1").text() === $("#b1").text() && $("#b1").text() === $("#c1").text() ) ||
+             ( $("#a1").text() === $("#b2").text() && $("#b2").text() === $("#c3").text() ) ){
+          return true;
         }
-      }
-
-    // if ( $("#a1").text() ){
-    //     console.log("checking #a1");
-    //     if ( ( $("#a1").text() === $("#a2").text() && $("#a2").text() === $("#a3").text() ) ||
-    //          ( $("#a1").text() === $("#b1").text() && $("#b1").text() === $("#c1").text() ) ||
-    //          ( $("#a1").text() === $("#b2").text() && $("#b2").text() === $("#c3").text() ) ){
-    //       return true;
-    //     }
-    // } if ( $("#b2").text() ){
-    //     console.log("checking #b2");
-    //     if ( ( $("#b1").text() === $("#b2").text() && $("#b2").text() === $("#b3").text() ) ||
-    //          ( $("#a2").text() === $("#b2").text() && $("#b2").text() === $("#c2").text() ) ||
-    //          ( $("#a3").text() === $("#b2").text() && $("#b2").text() === $("#c1").text() ) ){
-    //       return true;
-    //     }
-    // } if ( $("#c3").text() ){
-    //     console.log("checking #c3");
-    //     if ( ( $("#c1").text() === $("#c2").text() && $("#c2").text() === $("#c3").text() ) ||
-    //          ( $("#a3").text() === $("#b3").text() && $("#b3").text() === $("#c3").text() ) ){
-    //       return true;
-    //     }
-    // }
+    } if ( $("#b2").text() ){
+        console.log("checking #b2");
+        if ( ( $("#b1").text() === $("#b2").text() && $("#b2").text() === $("#b3").text() ) ||
+             ( $("#a2").text() === $("#b2").text() && $("#b2").text() === $("#c2").text() ) ||
+             ( $("#a3").text() === $("#b2").text() && $("#b2").text() === $("#c1").text() ) ){
+          return true;
+        }
+    } if ( $("#c3").text() ){
+        console.log("checking #c3");
+        if ( ( $("#c1").text() === $("#c2").text() && $("#c2").text() === $("#c3").text() ) ||
+             ( $("#a3").text() === $("#b3").text() && $("#b3").text() === $("#c3").text() ) ){
+          return true;
+        }
+    }
     return false;
   } //end is winner
 
@@ -80,15 +55,31 @@ $(document).ready(function() {
           }
           pCount ++;                                    //moves to next value"
           if (isWinner()){
-            alert( $(this).text() + " Wins!!");
             hasWinner = true;
-          } //end If(isWinner())
+            return alert( $(this).text() + " Wins!!");
+          } else if (pCount === 9){
+              hasWinner = false;
+              pCount = 0;
+              return alert("Tie!");
+
+          }
         } else if ( $(this).text() ){                   //check for occupied tiles
-          alert("Tile already occupied! Choose another space.");
-        } //end elseif !$this.text
+            return alert("Tile already occupied! Choose another space.");
+        }
       } //end addTile(event)
     ); //end .on "Click
 
+    $(".btn").on("click",
+      function resetButton(event){
+        $(".box").text("");
+        $(".box.red").removeClass("red");
+        $(".box.blue").removeClass("blue");
+        pCount = 0;
+        hasWinner = false;
+        console.log(hasWinner);
+      }
+    );//.btn onclick
+    console.log(hasWinner);
 
 
 console.log("working");

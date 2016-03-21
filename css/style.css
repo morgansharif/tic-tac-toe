@@ -1,5 +1,15 @@
 #board {
   margin-top: 10px;
+  border: 8px;
+}
+
+body{
+  background: tan;
+}
+
+.btn{
+  width 250px;
+  text-align: right;
 }
 
 .box {
